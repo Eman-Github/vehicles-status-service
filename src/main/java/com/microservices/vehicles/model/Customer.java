@@ -1,0 +1,30 @@
+package com.microservices.vehicles.model;
+
+import java.util.List;
+
+public class Customer {
+	
+	private Integer customerId;
+	private String customerName;
+	private String customerAddress;
+	
+	public Integer getCustomerId() {
+		return customerId;
+	}
+	public void setCustomerId(Integer customerId) {
+		this.customerId = customerId;
+	}
+	public String getCustomerName() {
+		return customerName;
+	}
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+	public String getCustomerAddress() {
+		return customerAddress;
+	}
+	public void setCustomerAddress(String customerAddress) {
+		this.customerAddress = customerAddress;
+	}
+
+}
