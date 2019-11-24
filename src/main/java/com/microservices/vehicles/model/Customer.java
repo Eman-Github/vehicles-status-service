@@ -1,7 +1,5 @@
 package com.microservices.vehicles.model;
 
-import java.util.List;
-
 public class Customer {
 	
 	private Integer customerId;

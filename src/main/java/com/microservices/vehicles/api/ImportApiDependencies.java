@@ -9,6 +9,7 @@ import java.lang.annotation.Target;
 import org.springframework.context.annotation.Import;
 
 import com.microservices.vehicles.repository.VehicleRepository;
+import com.microservices.vehicles.schedule.ChangeVehicleStatusSchedule;
 import com.microservices.vehicles.service.VehicleService;
 
 @Retention(RUNTIME)
@@ -17,7 +18,8 @@ import com.microservices.vehicles.service.VehicleService;
 @Import({
 	  
 	VehicleService.class,
-	VehicleRepository.class
+	VehicleRepository.class,
+	ChangeVehicleStatusSchedule.class
 	})
 public @interface ImportApiDependencies {
 

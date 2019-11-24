@@ -3,6 +3,7 @@ package com.microservices.vehicles.repository;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Repository;
 
 import com.microservices.vehicles.model.Customer;
@@ -13,8 +14,11 @@ import com.microservices.vehicles.model.VehiclesStatusEnum;
 public class VehicleRepository {
 	
 	List<Vehicle> vehicleList = new ArrayList<Vehicle>();
-	
 	public VehicleRepository() {
+			initiateData();
+	}
+	
+	private void initiateData() {
 		
 		Customer customer1 = new Customer();
 		customer1.setCustomerId(1);
@@ -83,7 +87,6 @@ public class VehicleRepository {
 		vehicle2Cust3.setStatus(VehiclesStatusEnum.DISCONNECTED.getStatus());
 		vehicle2Cust3.setCustomer(customer3);
 		vehicleList.add(vehicle2Cust3);
-		
 	}
 	
 	public List<Vehicle> getAllVehicles(){

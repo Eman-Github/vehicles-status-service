@@ -120,14 +120,14 @@ public class VehicleServiceTest {
 		vehicle2Cust1.setVehicleId("VLUR4X20009093588");
 		vehicle2Cust1.setRegNumber("DEF456");
 		vehicle2Cust1.setStatus(VehiclesStatusEnum.DISCONNECTED.getStatus());
-		vehicle2Cust1.setCustomer(customer1);
+		vehicle1Cust1.setCustomer(customer1);
 		vehiclesList.add(vehicle2Cust1);
 		
 		Vehicle vehicle3Cust1 = new Vehicle();
 		vehicle3Cust1.setVehicleId("VLUR4X20009048066");
 		vehicle3Cust1.setRegNumber("GHI789");
 		vehicle3Cust1.setStatus(VehiclesStatusEnum.CONNECTED.getStatus());
-		vehicle3Cust1.setCustomer(customer1);
+		vehicle1Cust1.setCustomer(customer1);
 		vehiclesList.add(vehicle3Cust1);
 	
 		when(this.vehicleRepository.getVehiclesByCustomerId(1)).thenReturn(vehiclesList);

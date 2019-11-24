@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.microservices.vehicles.model.Vehicle;
+import com.microservices.vehicles.schedule.ChangeVehicleStatusSchedule;
 import com.microservices.vehicles.service.VehicleService;
 
 @RestController
@@ -22,10 +23,12 @@ import com.microservices.vehicles.service.VehicleService;
 public class VehicleStatusController {
 	
 	VehicleService vehicleService;
+	ChangeVehicleStatusSchedule changeVehicleStatusSchedule;
 	
 	@Autowired
-	public VehicleStatusController(VehicleService vehicleService) {
+	public VehicleStatusController(VehicleService vehicleService,ChangeVehicleStatusSchedule changeVehicleStatusSchedule) {
 		this.vehicleService = vehicleService;
+		this.changeVehicleStatusSchedule = changeVehicleStatusSchedule;
 	}
 	//@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping(path = "/")

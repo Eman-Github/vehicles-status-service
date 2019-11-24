@@ -1,11 +1,12 @@
 package com.microservices.vehicles.model;
 
 public class Vehicle {
-
+	
 	private String vehicleId;
 	private String regNumber;
 	private String status;
 	private Customer customer;
+	
 	
 	public String getVehicleId() {
 		return vehicleId;

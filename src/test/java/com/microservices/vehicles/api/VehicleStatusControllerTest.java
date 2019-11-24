@@ -19,17 +19,19 @@ import com.microservices.vehicles.exception.ResourceNotFoundException;
 import com.microservices.vehicles.model.Customer;
 import com.microservices.vehicles.model.Vehicle;
 import com.microservices.vehicles.model.VehiclesStatusEnum;
+import com.microservices.vehicles.schedule.ChangeVehicleStatusSchedule;
 import com.microservices.vehicles.service.VehicleService;
 
 public class VehicleStatusControllerTest {
 
 	private VehicleService vehicleService;
 	private VehicleStatusController vehicleStatusController;
+	private ChangeVehicleStatusSchedule changeVehicleStatusSchedule;
 	
 	@BeforeEach
 	  public void beforeEach() {
 	    this.vehicleService = mock(VehicleService.class);
-	    this.vehicleStatusController = new VehicleStatusController(vehicleService);
+	    this.vehicleStatusController = new VehicleStatusController(vehicleService,changeVehicleStatusSchedule);
 	}
 	
 	@Test
