@@ -1,10 +1,14 @@
 pipeline {
     agent any
+    tools { 
+        maven 'LocalMaven' 
+        jdk 'LocalJDK' 
+    }
     stages {
         stage ('Build vehicle-status-service') {
             steps {
          		
-                 sh  '/Users/emanabdelatty/Softwares/apache-maven-3.6.2_1/mvn clean install'
+                 sh  'mvn clean install'
             }
 
             post{
