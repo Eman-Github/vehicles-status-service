@@ -4,7 +4,7 @@ pipeline {
         stage ('Build vehicle-status-service') {
             steps {
          		
-                 sh  'mvn clean install'
+                 sh  '/Users/emanabdelatty/Softwares/apache-maven-3.6.2_1/mvn clean install'
             }
 
             post{
