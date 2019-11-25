@@ -1,22 +1,20 @@
 pipeline {
     agent any
     stages {
-        stage ('Initialize') {
+        stage ('Build vehicle-status-service') {
             steps {
-                echo  "Initializing the Code File"
+         		
+                 sh  'mvn clean install'
+            }
+
+            post{
+                success{
+                    echo 'Now Archiving build artifact jar file....'
+
+                    archiveArtifacts artifacts : '**/*.jar'
+                }
             }
         }
- 
-        stage ('Build') {
-            steps {
-                echo 'Hello World'
-            }
-        }
- 
-         stage ('Deploy') {
-            steps {
-                echo 'Deployed an Artifact'
-            }
-        }
+
     }
 }
