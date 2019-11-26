@@ -29,7 +29,7 @@ pipeline {
 	        	sh 'echo "Building the Image success...."'
 	        	
 	        	customImage.inside {
-	        			sh echo "Tests passed"'
+	        			sh 'echo "Tests passed"'
 	        			
     	 		}
     	 		sh 'echo "Pushing the Image ...."'
