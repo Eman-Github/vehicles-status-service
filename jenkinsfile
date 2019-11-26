@@ -21,26 +21,30 @@ pipeline {
         }
         
         stage('Build Docker image') {
-	       
+	       steps {
 	  			echo 'Building the Image ....'
 	        	def customImage = docker.build("vehicle-status-service:v3")
 	        	echo 'Building the Image success....'
-	        	
+	        } 
+	        post{
+                success{
+                	customImage.inside {
+	        			sh 'echo "Tests passed"'
+	        			
+    	 			}
+    	 			
+                }
+            }  	
     	}
 
 	    stage('Test image') {
-	    
-		       customImage.inside {
-	        			sh 'echo "Tests passed"'
-    	 		
-    	 	}
-	    	 post{
-	                success{
-	                    echo 'Pushing the Image ....'
-	                    customImage.push()
-	                    echo 'Pushing success....'
-	                }
-	            }
-	     } 		
+	    	steps {
+		    
+	            echo 'Pushing the Image ....'
+	            customImage.push()
+	            echo 'Pushing success....'
+	             
+	    	}
+	    } 		
     }
 }
