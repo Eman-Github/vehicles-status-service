@@ -4,6 +4,7 @@ pipeline {
         maven 'LocalMaven' 
         jdk 'LocalJDK' 
     }  
+    
     stages {
         stage ('Build vehicle-status-service') {
             steps {
@@ -22,29 +23,20 @@ pipeline {
         
         stage('Build Docker image') {
 	       steps {
+	       
 	  			echo 'Building the Image ....'
 	        	def customImage = docker.build("vehicle-status-service:v3")
 	        	echo 'Building the Image success....'
-	        } 
-	        post{
-                success{
-                	customImage.inside {
+	        	
+	        	customImage.inside {
 	        			sh 'echo "Tests passed"'
 	        			
-    	 			}
-    	 			
-                }
-            }  	
-    	}
-
-	    stage('Test image') {
-	    	steps {
-		    
-	            echo 'Pushing the Image ....'
+    	 		}
+    	 		echo 'Pushing the Image ....'
 	            customImage.push()
 	            echo 'Pushing success....'
-	             
-	    	}
-	    } 		
+	        } 
+    	}
+
     }
 }
