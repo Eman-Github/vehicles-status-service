@@ -33,7 +33,7 @@ pipeline {
 		        			
 	    	 		}
 	    	 		sh 'echo "Pushing the Image ...."'
-		            customImage.push("pushing docker image")
+		            customImage.push("v3")
 		            sh 'echo "Pushing success...."'
 	            }
 	        } 
