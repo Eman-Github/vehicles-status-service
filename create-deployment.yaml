@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vehicle-status-service-deployment
+  labels:
+    app: vehicle-status-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vehicle-status-service
+  template:
+    metadata:
+      labels:
+        app: vehicle-status-service
+    spec:
+      containers:
+      - name: vehicle-status-service-container
+        image: emodocker/vehicle-status-service:v2
+        ports:
+        - containerPort: 8080
