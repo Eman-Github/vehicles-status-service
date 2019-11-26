@@ -24,7 +24,7 @@ pipeline {
         stage('Build Docker image') {
 	       steps {
 	       	script{
-	       			docker.withRegistry('docker.io/emodocker') {
+	       			docker.withRegistry('https://hub.docker.com/repository/docker/emodocker') {
 	       			
 			  			sh 'echo "Building the Image ...."'
 			        	def customImage = docker.build("vehicle-status-service:v3")
